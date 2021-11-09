@@ -38,15 +38,15 @@ public class MatriculaController {
                 .findById(idPessoa)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Aluno inexistente"));
 
-//        Integer idDisciplina = matriculaDTO.getIdDisciplinaDTO();
-//        Disciplina disciplinaAluno = disciplinaRepository
-//                .findById(idDisciplina)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Disciplina inexistente"));
+        Integer idDisciplina = matriculaDTO.getIdDisciplinaDTO();
+        Disciplina disciplinaAluno = disciplinaRepository
+                .findById(idDisciplina)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Disciplina inexistente"));
 
         Matricula matricula = new Matricula();
         matricula.setDataMatricula(data);
         matricula.setAluno(pessoaAluno);
-      //  matricula.setDisciplina(disciplinaAluno);
+        matricula.setDisciplina(disciplinaAluno);
         matricula.setPeriodo(matriculaDTO.getPeriodoDTO());
         matricula.setValorPago(bigdecimalConverter.converter(matriculaDTO.getValorPagoDTO()));
 

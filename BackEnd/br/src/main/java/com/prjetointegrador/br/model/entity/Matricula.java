@@ -18,7 +18,7 @@ public class Matricula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idMatricula;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "id_disciplina")

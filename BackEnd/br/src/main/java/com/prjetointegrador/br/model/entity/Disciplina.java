@@ -13,7 +13,7 @@ public class Disciplina {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigo;
+    private Integer id;
 
     @Column
     private String nomeDisciplina;
