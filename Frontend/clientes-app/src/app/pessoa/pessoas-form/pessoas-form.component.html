@@ -1,0 +1,103 @@
+<h1 class="mt-4">Pessoa</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">{{ pessoa.id ? 'Edição' : 'Cadastro' }}</li>
+</ol>
+ 
+<div class="container">
+    <form #pessoaForm="ngForm" (ngSubmit)="onSubmit()">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Pessoa Salvo com sucesso! 
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}    
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="row"  *ngIf="pessoa.id"> -->
+            <div class="row"  >
+            <div class="col-md-6" >
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" class="form-control" name="id" [ngModel]="pessoa.id" disabled="true"/>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data Cadastro:</label>
+                    <input type="text" class="form-control" name="dataCadastro" [ngModel]="pessoa.dataCadastro"  disabled="true" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome: *</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="pessoa.nomePessoa" name="nomePessoa"/>
+                
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>CPF: *</label>
+                    <input type="text" class="form-control" name="cpf" [(ngModel)]="pessoa.cpf" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Endereço: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="pessoa.endereco" name="endereco"/>
+                </div>
+            </div>    
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>UF: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="pessoa.uf" name="uf"/>
+                </div>
+            </div>   
+           
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Telefone: </label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="pessoa.telefone" name="telefone"/>
+                </div>
+            </div> 
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>E-mail: *</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="pessoa.email" name="email"/>
+                </div>
+            </div> 
+
+        </div>
+
+        <div class="row>">
+           <div class="col-md3">
+               <button type="submit" class="btn btn-success"  *ngIf="!pessoa.id">
+                <i class="fa fa-save"> </i> Salvar
+            </button>
+
+            <button type="submit" class="btn btn-primary"  *ngIf="pessoa.id">
+                <i class="fa fa-sync-alt"> </i> Atualizar
+            </button>
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaLista()">
+                 <i class="fa fa-arrow-alt-circle-left"> </i> Voltar</button>
+            </div>
+        </div>
+    
+    </form>
+</div>

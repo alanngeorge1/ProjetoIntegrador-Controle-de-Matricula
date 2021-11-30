@@ -10,7 +10,8 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pessoas")
+@RequestMapping("/api/pessoa")
+@CrossOrigin("http://localhost:4200")
 public class PessoaController {
 
     private final PessoaRepository pessoaRepository;
