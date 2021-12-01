@@ -12,6 +12,8 @@ import {PessoasModule} from './pessoa/pessoas.module';
 import {PessoasService} from './pessoas.service';
 import { ServicoPrestadoService} from './servico-prestado.service';
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
+import {DisciplinasService } from './disciplinas.service';
+import {DisciplinasModule} from './disciplina/disciplinas.module'
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -33,12 +35,14 @@ import { LayoutComponent } from './layout/layout.component';
     TemplateModule,
     PessoasModule,
     ServicoPrestadoModule,
+    DisciplinasModule,
     
   ],
   
   providers: [
     PessoasService,
     ServicoPrestadoService,
+    DisciplinasService,
  
   ],
   
