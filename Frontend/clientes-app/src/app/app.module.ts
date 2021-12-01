@@ -10,8 +10,11 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import {PessoasModule} from './pessoa/pessoas.module';
 import {PessoasService} from './pessoas.service';
+import {DisciplinasService } from './disciplinas.service';
+import {DisciplinasModule} from './disciplina/disciplinas.module'
 import { MatriculaService} from './matricula.service';
 import { MatriculaModule } from './matricula/matricula.module';
+
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -32,12 +35,14 @@ import { LayoutComponent } from './layout/layout.component';
     HttpClientModule,
     TemplateModule,
     PessoasModule,
+    DisciplinasModule,
     MatriculaModule,
     
   ],
   
   providers: [
     PessoasService,
+    DisciplinasService,
     MatriculaService,
  
   ],
