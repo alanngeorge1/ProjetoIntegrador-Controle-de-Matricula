@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class DisciplinaDTO {
-    private Integer idPessoaProfessor;
+    private Integer idDisciplinaDTO;
+    private Integer idDisciplinaProfessorDTO;
     private String   nomeDisciplinaDTO;
     private Integer   cargaHorariaDTO;
     private Integer   limiteAlunosDTO;
