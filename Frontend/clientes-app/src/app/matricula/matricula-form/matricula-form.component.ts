@@ -1,39 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { Pessoa } from '../../pessoa/pessoa';
 import { PessoasService } from '../../pessoas.service'
-import { ServicoPrestado } from '../servicoPrestado';
-import { ServicoPrestadoService } from '../../servico-prestado.service';
+import { Matricula } from '../Matricula';
+import { MatriculaService } from '../../matricula.service';
+  import { from } from 'rxjs';
 @Component({
-  selector: 'app-servico-prestado-form',
-  templateUrl: './servico-prestado-form.component.html',
-  styleUrls: ['./servico-prestado-form.component.css']
+  selector: 'app-matricula-form',
+  templateUrl: './matricula-form.component.html',
+  styleUrls: ['./matricula-form.component.css']
 })
-export class ServicoPrestadoFormComponent implements OnInit {
-  servico: ServicoPrestado;
+export class MatriculaFormComponent implements OnInit {
+  matricula: Matricula;
   pessoa : Pessoa[] = [];
   success: boolean = false;
   errors: String[];
 
   constructor(
-    private clienteService: PessoasService,
-    private service: ServicoPrestadoService
+    private pessoaService: PessoasService,
+    private service: MatriculaService
   ){ 
-    this.servico = new ServicoPrestado();
+    this.matricula = new Matricula();
   }
 
   ngOnInit(): void {
-    this.clienteService
+    this.pessoaService
       .getClientes()
       .subscribe(response => this.pessoa = response);
   }
 
   onSubmit(){
     this.service
-    .salvar(this.servico)
+    .salvar(this.matricula)
     .subscribe(response =>{
       this.success = true;
       this.errors = null;
-      this.servico = new ServicoPrestado();
+      this.matricula = new Matricula();
     }, errorResponse => {
       this.success = false;
       this.errors = errorResponse.error.errors;

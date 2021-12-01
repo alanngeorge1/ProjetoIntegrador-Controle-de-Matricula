@@ -22,12 +22,12 @@
                     <label>Pessoa: </label>
                     <select class="form-control" 
                             [ngModelOptions]="{standalone: true}"
-                            [(ngModel)]="servico.idCliente">
+                            [(ngModel)]="matricula.idPessoaAlunoDTO">
                         <option value="">Selecione...</option>
-                        <!-- <option *ngFor="let pessoa of pessoa" 
+                        <option *ngFor="let pessoa of pessoa" 
                                 [ngValue]="pessoa.id">
-                            {{ pessoa.nome }} -->
-                        <!-- </option> -->
+                            {{ pessoa.nomePessoa }}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <label>Disciplina:</label>
                     <select class="form-control" 
                     [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="servico.idCliente">
+                    [(ngModel)]="matricula.idDisciplinaDTO">
                 <option value="">Selecione...</option>
                 <!-- <option *ngFor="let pessoa of pessoa" 
                         [ngValue]="pessoa.id">
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label>Data Matricula:</label>
                     <input class="form-control" 
-                            [(ngModel)]="servico.data" type="text" 
+                            [(ngModel)]="matricula.dataMatriculaDTO" type="text" 
                             name="data" id="inputData">
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label>Valor Pago:</label>
                     <input class="form-control" 
-                            [(ngModel)]="servico.preco" type="text" 
+                            [(ngModel)]="matricula.valorPagoDTO" type="text" 
                             name="preco" id="inputPreco">
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <label>Periodo:</label>
                     <input class="form-control" 
-                            [(ngModel)]="servico.preco" type="text" 
+                            [(ngModel)]="matricula.periodoDTO" type="text" 
                             name="preco" id="inputPreco">
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     Salvar
                 </button>
 
-                <button type="button" routerLink="/servicos-prestados/lista" 
+                <button type="button" routerLink="/matricula/lista" 
                         class="btn btn-danger ml-1" >
                     <i class="fa fa-arrow-alt-circle-left" ></i> Voltar
                 </button>

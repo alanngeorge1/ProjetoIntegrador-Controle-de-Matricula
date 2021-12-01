@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ServicoPrestado } from './servico-prestado/servicoPrestado';
+import { Matricula } from './matricula/matricula';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment'
-import { ServicoPrestadoBusca } from './servico-prestado/servico-prestado-lista/servicoPrestadoBusca';
+import { MatriculaBusca } from './matricula/matricula-lista/matriculaBusca';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicoPrestadoService {
+export class MatriculaService {
 
   apiURL : string = environment.apiURLBase +  '/api/servicos-prestados';
 
   constructor(private http: HttpClient ) {}
 
 
-  salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
-    return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
+  salvar(matricula: Matricula) : Observable<Matricula>{
+    return this.http.post<Matricula>(this.apiURL, matricula);
   }
   
-  buscar(nome: string, mes: number) : Observable<ServicoPrestadoBusca[]>{
+  buscar(nome: string, mes: number) : Observable<MatriculaBusca[]>{
     
     const httpParams = new HttpParams()
       .set("nome", nome)

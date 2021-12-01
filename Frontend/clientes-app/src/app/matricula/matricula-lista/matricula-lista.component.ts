@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicoPrestadoBusca } from './servicoPrestadoBusca';
-import { ServicoPrestadoService } from '../../servico-prestado.service'
+import { MatriculaBusca } from './matriculaBusca';
+import { MatriculaService } from '../../matricula.service'
 
 
 @Component({
-  selector: 'app-servico-prestado-lista',
-  templateUrl: './servico-prestado-lista.component.html',
-  styleUrls: ['./servico-prestado-lista.component.css']
+  selector: 'app-matricula-lista',
+  templateUrl: './matricula-lista.component.html',
+  styleUrls: ['./matricula-lista.component.css']
 })
-export class ServicoPrestadoListaComponent implements OnInit {
+export class MatriculaListaComponent implements OnInit {
 
   nome: string;
   mes: number;
   meses: number[];
-  lista: ServicoPrestadoBusca[];
+  lista: MatriculaBusca[];
   message: string;
 
   constructor(
-    private service: ServicoPrestadoService
+    private service: MatriculaService
   ) { 
     this.meses = [1,2,3,4,5,6,7,8,9,10,11,12];
   }
