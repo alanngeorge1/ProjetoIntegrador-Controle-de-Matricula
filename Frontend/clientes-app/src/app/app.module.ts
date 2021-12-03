@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
- 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,6 +15,9 @@ import {DisciplinasModule} from './disciplina/disciplinas.module'
 import { MatriculaService} from './matricula.service';
 import { MatriculaModule } from './matricula/matricula.module';
 
+import { FaturamentoService} from './faturamento.service';
+import { FaturamentoModule } from './faturamento/faturamento.module';
+
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -26,7 +29,7 @@ import { LayoutComponent } from './layout/layout.component';
     HomeComponent,
     LoginComponent,
     LayoutComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -37,16 +40,16 @@ import { LayoutComponent } from './layout/layout.component';
     PessoasModule,
     DisciplinasModule,
     MatriculaModule,
-    
+    FaturamentoModule,
   ],
-  
+
   providers: [
     PessoasService,
     DisciplinasService,
     MatriculaService,
- 
+    FaturamentoService,
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
