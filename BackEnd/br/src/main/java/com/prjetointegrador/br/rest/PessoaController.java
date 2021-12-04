@@ -38,6 +38,12 @@ public class PessoaController {
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/pesquisa")
+    public List<Pessoa> pesquisarPorNomeCPF(@RequestParam("nome") String nome, @RequestParam("cpf") String cpf){
+        return pessoaRepository.findByNomePessoaOrCpf(nome, cpf)
+                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar( @PathVariable Integer id){
