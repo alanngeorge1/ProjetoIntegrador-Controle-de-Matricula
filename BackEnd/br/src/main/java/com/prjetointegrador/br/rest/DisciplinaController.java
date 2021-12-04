@@ -26,7 +26,7 @@ public class DisciplinaController {
     @ResponseStatus(HttpStatus.CREATED)
     public Disciplina salvar(@RequestBody DisciplinaDTO disciplinaDTO) {
 
-        Integer idPessoaProfessor = disciplinaDTO.getIdPessoaProfessor();
+        Integer idPessoaProfessor = disciplinaDTO.getIdDisciplinaProfessorDTO();
         Pessoa pessoaProfessor = pessoaRepository
                 .findById(idPessoaProfessor)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Professor inexistente"));

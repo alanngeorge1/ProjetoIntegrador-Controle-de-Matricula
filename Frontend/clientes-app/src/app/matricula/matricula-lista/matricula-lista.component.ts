@@ -29,6 +29,7 @@ export class MatriculaListaComponent implements OnInit {
     this.service
       .buscar(this.nome, this.mes)
       .subscribe(response => {
+        console.log (response);
         this.lista = response;
         if( this.lista.length <= 0 ){
           this.message = "Nenhum Registro encontrado.";

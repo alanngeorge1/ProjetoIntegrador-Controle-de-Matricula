@@ -8,3 +8,7 @@ export class Pessoa{
     email: string;
     dataCadastro: string;
 }
+
+// export enum AlunoProfessor {
+//     ALUNO = 'ALUNO'
+// }

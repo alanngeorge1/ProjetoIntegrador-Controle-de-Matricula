@@ -4,6 +4,7 @@ import { PessoasService } from '../../pessoas.service'
 import { Matricula } from '../Matricula';
 import { MatriculaService } from '../../matricula.service';
   import { from } from 'rxjs';
+import { PessoaBusca } from 'src/app/pessoa/pessoas-lista/pessoaBusca';
 @Component({
   selector: 'app-matricula-form',
   templateUrl: './matricula-form.component.html',
@@ -11,7 +12,7 @@ import { MatriculaService } from '../../matricula.service';
 })
 export class MatriculaFormComponent implements OnInit {
   matricula: Matricula;
-  pessoa : Pessoa[] = [];
+  pessoa : PessoaBusca[] = [];
   success: boolean = false;
   errors: String[];
 

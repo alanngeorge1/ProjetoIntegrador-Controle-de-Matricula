@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { Pessoa } from '../pessoa';
 import {PessoasService } from '../../pessoas.service';
 import { from } from 'rxjs';
+import { PessoaBusca } from './pessoaBusca';
 
 
 @Component({
@@ -13,11 +14,15 @@ import { from } from 'rxjs';
 })
 export class PessoasListaComponet implements OnInit {
 
- 
- pessoa: Pessoa[] = [];
+
   pessoaSelecionado: Pessoa;
   mensagemSucesso: string;
   mensagemErro: string;
+  nome: string;
+  cpf: string;
+  lista: PessoaBusca[];
+  message: string;
+  // alunoProfessor: AlunoProfessor;
 
   constructor(
     private service: PessoasService, 
@@ -26,7 +31,7 @@ export class PessoasListaComponet implements OnInit {
   ngOnInit(): void {
     this.service
       .getClientes()
-      .subscribe( resposta => this.pessoa = resposta );
+      .subscribe( resposta => this.lista = resposta );
   }
 
   novoCadastro(){
@@ -48,6 +53,19 @@ export class PessoasListaComponet implements OnInit {
         erro => this.mensagemErro = 'Ocorreu um erro ao deletar o pessoa.'  
       )
     
+}
+
+consultar(){
+  this.service
+    .buscar(this.nome, this.cpf)
+    .subscribe(response => {
+      this.lista = response;
+      if( this.lista.length <= 0 ){
+        this.message = "Nenhum Registro encontrado.";
+      }else{
+        this.message = null;
+      }
+    });
 }
 
 }
