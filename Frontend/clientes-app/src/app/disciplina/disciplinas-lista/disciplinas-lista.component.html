@@ -3,6 +3,46 @@
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
 <div class="container">
+
+    <form #consultaForm="ngForm" (submit)="consultar()">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="inputNomeAluno">Nome Aluno:</label>
+                <input type="text" [(ngModel)]="nomeAluno" 
+                       name="nomeAluno" class="form-control"
+                       id="inputNomeAluno">
+            </div>
+            
+            <div class="col-md-4">
+                <label for="inputNomeProfessor">Nome Professor:</label>
+                <input type="text" [(ngModel)]="nomeProfessor" 
+                       name="nomeProfessor" class="form-control"
+                       id="inputNomeProfessor">
+            </div>
+
+            <div class="col-md-4">
+                <label for="inputNomeDisciplina">Nome Disciplina:</label>
+                <input type="text" [(ngModel)]="nomeDisciplina" 
+                       name="nomeDisciplina" class="form-control"
+                       id="inputNomeDisciplina">
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-search"></i> Consultar
+                </button>
+
+                <button class="btn btn-warning" (click)="novoCadastro()" >
+                    <i class="fa fa-plus"></i> Novo
+                </button>
+            </div>
+        </div>
+    </form>
+
     <div class="row">
         <div class="col-md-12">
 
@@ -16,21 +56,15 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-2">
-            <button class="btn btn-warning" (click)="novoCadastro()" >
-                <i class="fa fa-plus"></i> Novo
-            </button>
-        </div>
-    </div>
     <br />
+
     <div class="row">
         <div class="col-md-12">
             <table class="table table-condensed table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
+                        <th>Nome Disciplina</th>
                         <th>Professor</th>
                         <th>Carga horária</th>
                         <th>Limite de Alunos</th>
@@ -38,15 +72,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let disciplina of disciplina">
-                        <td>{{ disciplina.idDisciplina }}</td>
-                        <td>{{ disciplina.nomeDisciplina }}</td>
-                        <td>{{ disciplina.idDisciplinaProfessor }}</td>
-                        <td>{{ disciplina.cargaHoraria }}</td>
-                        <td>{{ disciplina.limiteAlunos }}</td>
+                    <tr *ngFor="let disciplina of lista">
+                        <td>{{ disciplinaBusca.idDisciplinaBusca }}</td>
+                        <td>{{ disciplinaBusca.nomeDisciplinaBusca }}</td>
+                        <td>{{ disciplinaBusca.idDisciplinaProfessor }}</td>
+                        <td>{{ disciplinaBusca.cargaHorariaBusca }}</td>
+                        <td>{{ disciplinaBusca.limiteAlunosBusca }}</td>
                         <td>
                             <button class="btn btn-primary" 
-                                    routerLink="/disciplina/form/{{ disciplina.idDisciplina }}">
+                                    routerLink="/disciplina/form/{{ disciplina.id }}">
                                 <i class="fa fa-edit"></i>
                             </button>
 

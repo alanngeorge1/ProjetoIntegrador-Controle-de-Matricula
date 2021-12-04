@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { Disciplina } from '../disciplina';
 import {DisciplinasService } from '../../disciplinas.service';
 import { from } from 'rxjs';
+import { DisciplinaBusca } from './disciplinaBusca';
 
 
 @Component({
@@ -13,11 +14,14 @@ import { from } from 'rxjs';
 })
 export class DisciplinasListaComponet implements OnInit {
 
- 
- disciplina: Disciplina[] = [];
   disciplinaelecionado: Disciplina;
   mensagemSucesso: string;
   mensagemErro: string;
+  nomeAluno: string;
+  nomeProfessor: string;
+  nomeMatricula: string;
+  lista: DisciplinaBusca[];
+  message: string;
 
   constructor(
     private service: DisciplinasService, 
@@ -26,7 +30,7 @@ export class DisciplinasListaComponet implements OnInit {
   ngOnInit(): void {
     this.service
       .getDisciplinas()
-      .subscribe( resposta => this.disciplina = resposta );
+      .subscribe( resposta => this.lista = resposta );
   }
 
   novoCadastro(){
@@ -42,12 +46,26 @@ export class DisciplinasListaComponet implements OnInit {
       .deletar(this.disciplinaelecionado)
       .subscribe( 
         response => {
-          this.mensagemSucesso = 'Disciplina deletado com sucesso!'
+          this.mensagemSucesso = 'Disciplina deletada com sucesso!'
           this.ngOnInit();
         },
-        erro => this.mensagemErro = 'Ocorreu um erro ao deletar o disciplina.'  
+        erro => this.mensagemErro = 'Ocorreu um erro ao deletar a disciplina.'  
       )
     
 }
+
+consultar(){
+  this.service
+    .buscar(this.nomeAluno, this.nomeMatricula, this.nomeProfessor)
+    .subscribe(response => {
+      this.lista = response;
+      if( this.lista.length <= 0 ){
+        this.message = "Nenhum Registro encontrado.";
+      }else{
+        this.message = null;
+      }
+    });
+}
+
 
 }

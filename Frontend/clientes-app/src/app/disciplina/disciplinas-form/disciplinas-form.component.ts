@@ -55,7 +55,7 @@ export class DisciplinaFormComponent implements OnInit {
           this.success = true;
            this.errors = null;  
         }, errpResponse => {
-            this.errors = ['Erro ao Atualizar o Disciplina.']
+            this.errors = ['Erro ao Atualizar a Disciplina.']
         })
 
       

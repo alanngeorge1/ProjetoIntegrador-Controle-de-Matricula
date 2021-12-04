@@ -21,6 +21,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/matriculas")
+@CrossOrigin("http://localhost:4200")
 public class MatriculaController {
 
     private final MatriculaRepository matriculaRepository;

@@ -55,7 +55,7 @@ export class PessoaFormComponent implements OnInit {
           this.success = true;
            this.errors = null;  
         }, errpResponse => {
-            this.errors = ['Erro ao Atualizar o Pessoa.']
+            this.errors = ['Erro ao Atualizar a Pessoa.']
         })
 
       

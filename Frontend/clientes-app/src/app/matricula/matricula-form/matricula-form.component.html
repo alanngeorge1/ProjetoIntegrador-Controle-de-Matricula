@@ -22,7 +22,7 @@
                     <label>Pessoa: </label>
                     <select class="form-control" 
                             [ngModelOptions]="{standalone: true}"
-                            [(ngModel)]="matricula.idPessoaAlunoDTO">
+                            [(ngModel)]="matricula.idPessoaAluno">
                         <option value="">Selecione...</option>
                         <option *ngFor="let pessoa of pessoa" 
                                 [ngValue]="pessoa.id">
@@ -33,38 +33,38 @@
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Disciplina:</label>
                     <select class="form-control" 
                     [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="matricula.idDisciplinaDTO">
+                    [(ngModel)]="disciplina.idDisciplina">
                 <option value="">Selecione...</option>
-                <!-- <option *ngFor="let pessoa of pessoa" 
-                        [ngValue]="pessoa.id">
-                    {{ displina.nome }}
-                </option> -->
+                <option *ngFor="let disciplina of disciplina" 
+                        [ngValue]="disciplina.idDisciplina">
+                    {{ disciplina.nomeDisciplina }}
+                </option>
             </select>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data Matricula:</label>
                     <input class="form-control" 
-                            [(ngModel)]="matricula.dataMatriculaDTO" type="text" 
-                            name="data" id="inputData">
+                            [(ngModel)]="matricula.dataMatricula" type="text" 
+                            name="dataMatricula" id="inputDataMatricula">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Valor Pago:</label>
                     <input class="form-control" 
-                            [(ngModel)]="matricula.valorPagoDTO" type="text" 
-                            name="preco" id="inputPreco">
+                            [(ngModel)]="matricula.valorPago" type="text" 
+                            name="valorPago" id="inputValorPago">
                 </div>
             </div>
 
@@ -72,8 +72,8 @@
                 <div class="form-group">
                     <label>Periodo:</label>
                     <input class="form-control" 
-                            [(ngModel)]="matricula.periodoDTO" type="text" 
-                            name="preco" id="inputPreco">
+                            [(ngModel)]="matricula.periodo" type="text" 
+                            name="periodo" id="inputPeriodo">
                 </div>
             </div>
 

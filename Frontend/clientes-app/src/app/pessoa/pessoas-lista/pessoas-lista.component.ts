@@ -14,7 +14,6 @@ import { PessoaBusca } from './pessoaBusca';
 })
 export class PessoasListaComponet implements OnInit {
 
-
   pessoaSelecionado: Pessoa;
   mensagemSucesso: string;
   mensagemErro: string;
@@ -47,10 +46,10 @@ export class PessoasListaComponet implements OnInit {
       .deletar(this.pessoaSelecionado)
       .subscribe( 
         response => {
-          this.mensagemSucesso = 'Pessoa deletado com sucesso!'
+          this.mensagemSucesso = 'Pessoa deletada com sucesso!'
           this.ngOnInit();
         },
-        erro => this.mensagemErro = 'Ocorreu um erro ao deletar o pessoa.'  
+        erro => this.mensagemErro = 'Ocorreu um erro ao deletar a pessoa.'  
       )
     
 }

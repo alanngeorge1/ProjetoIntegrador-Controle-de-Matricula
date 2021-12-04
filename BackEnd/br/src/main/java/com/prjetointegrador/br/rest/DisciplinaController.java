@@ -2,7 +2,6 @@ package com.prjetointegrador.br.rest;
 
 
 import com.prjetointegrador.br.model.entity.Disciplina;
-import com.prjetointegrador.br.model.entity.Matricula;
 import com.prjetointegrador.br.model.entity.Pessoa;
 import com.prjetointegrador.br.model.repository.DisciplinaRepository;
 import com.prjetointegrador.br.model.repository.PessoaRepository;
@@ -16,7 +15,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/disciplinas")
+@RequestMapping("/api/disciplina")
+@CrossOrigin("http://localhost:4200")
 public class DisciplinaController {
 
     private final PessoaRepository pessoaRepository;

@@ -5,6 +5,8 @@ import { Matricula } from '../Matricula';
 import { MatriculaService } from '../../matricula.service';
   import { from } from 'rxjs';
 import { PessoaBusca } from 'src/app/pessoa/pessoas-lista/pessoaBusca';
+import { DisciplinasService } from 'src/app/disciplinas.service';
+import { DisciplinaBusca } from 'src/app/disciplina/disciplinas-lista/disciplinaBusca';
 @Component({
   selector: 'app-matricula-form',
   templateUrl: './matricula-form.component.html',
@@ -15,10 +17,12 @@ export class MatriculaFormComponent implements OnInit {
   pessoa : PessoaBusca[] = [];
   success: boolean = false;
   errors: String[];
+  disciplina: DisciplinaBusca[] = [];
 
   constructor(
     private pessoaService: PessoasService,
-    private service: MatriculaService
+    private service: MatriculaService,
+    private  disciplinaService: DisciplinasService  
   ){ 
     this.matricula = new Matricula();
   }
@@ -26,7 +30,11 @@ export class MatriculaFormComponent implements OnInit {
   ngOnInit(): void {
     this.pessoaService
       .getClientes()
-      .subscribe(response => this.pessoa = response);
+      .subscribe(response => this.pessoa = response)
+
+      this.disciplinaService
+      .getDisciplinas()
+      .subscribe(response => this.disciplina = response);
   }
 
   onSubmit(){
