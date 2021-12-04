@@ -1,7 +1,7 @@
 <h1 class="mt-4">Disciplina</h1>
 <ol class="breadcrumb mb-4">
     <!-- <li class="breadcrumb-item active">{{ disciplina.idDisciplina ? 'Edição' : 'Cadastro' }}</li> -->
-    <li class="breadcrumb-item active">{{ disciplina.id ? 'Edição' : 'Cadastro' }}</li>
+    <li class="breadcrumb-item active">{{ disciplina.idDisciplinaDTO ? 'Edição' : 'Cadastro' }}</li>
 </ol>
  
 <div class="container">
@@ -23,7 +23,7 @@
             <div class="col-md-6" >
                 <div class="form-group">
                     <label>ID:</label>
-                    <input type="text" class="form-control" name="idDisciplina" [ngModel]="disciplina.idDisciplina" disabled="true"/>
+                    <input type="text" class="form-control" name="idDisciplinaDTO" [ngModel]="disciplina.idDisciplinaDTO" disabled="true"/>
                 </div>
             </div>
             
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label>Nome Disciplina: *</label>
                     <input type="text" class="form-control" 
-                    [(ngModel)]="disciplina.nomeDisciplina" name="nomeDisciplina"/>
+                    [(ngModel)]="disciplina.idDisciplinaProfessorDTO" name="idDisciplinaProfessorDTO"/>
                 
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Carga horária: *</label>
-                    <input type="text" class="form-control" name="cargaHoraria" [(ngModel)]="disciplina.cargaHoraria" />
+                    <input type="text" class="form-control" name="cargaHorariaDTO" [(ngModel)]="disciplina.cargaHorariaDTO" />
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <label>Professor: </label>
                     <input type="text" class="form-control" 
-                    [(ngModel)]="disciplina.nomeProfessor" name="nomeProfessor"/>
+                    [(ngModel)]="disciplina.idDisciplinaProfessorDTO" name="idDisciplinaProfessorDTO"/>
                 </div>
             </div>    
 
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label>Limite de Alunos: </label>
                     <input type="text" class="form-control" 
-                    [(ngModel)]="disciplina.limiteAlunos" name="limiteAlunos"/>
+                    [(ngModel)]="disciplina.limiteAlunosDTO" name="limiteAlunosDTO"/>
                 </div>
             </div>   
           
@@ -66,11 +66,11 @@
 
         <div class="row>">
            <div class="col-md3">
-               <button type="submit" class="btn btn-success"  *ngIf="!disciplina.idDisciplina">
+               <button type="submit" class="btn btn-success"  *ngIf="!disciplina.idDisciplinaDTO">
                 <i class="fa fa-save"> </i> Salvar
             </button>
 
-            <button type="submit" class="btn btn-primary"  *ngIf="disciplina.idDisciplina">  
+            <button type="submit" class="btn btn-primary"  *ngIf="disciplina.idDisciplinaDTO">  
                 <i class="fa fa-sync-alt"> </i> Atualizar
             </button>
                 <button type="button" class="btn btn-danger ml-1" (click)="voltarParaLista()" >

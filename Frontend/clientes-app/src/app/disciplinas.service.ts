@@ -19,11 +19,15 @@ export class DisciplinasService {
   }
 
   atualizar( disciplina: Disciplina ) : Observable<any> {
-    return this.http.put<Disciplina>(`${this.apiURL}/${disciplina.idDisciplina}` , disciplina);
+    return this.http.put<Disciplina>(`${this.apiURL}/${disciplina.idDisciplinaDTO}` , disciplina);
   }
 
   getDisciplinas() : Observable<DisciplinaBusca[]> {
     return this.http.get<DisciplinaBusca[]>(this.apiURL);
+  }
+
+  getDisciplinasDTO() : Observable<Disciplina[]> {
+    return this.http.get<Disciplina[]>(this.apiURL);
   }
 
   getDisciplinaById(id: number) : Observable<Disciplina> {
@@ -31,7 +35,7 @@ export class DisciplinasService {
   }
 
   deletar(disciplina: Disciplina) : Observable<any> {
-    return this.http.delete<any>(`${this.apiURL}/${disciplina.idDisciplina}`);
+    return this.http.delete<any>(`${this.apiURL}/${disciplina.idDisciplinaDTO}`);
   }
 
   buscar(nomeAluno: string, nomeProfessor: string, nomeDisciplina: string) : Observable<DisciplinaBusca[]>{

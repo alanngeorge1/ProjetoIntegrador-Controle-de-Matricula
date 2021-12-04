@@ -20,12 +20,6 @@
                        id="inputNomeProfessor">
             </div>
 
-            <div class="col-md-4">
-                <label for="inputNomeDisciplina">Nome Disciplina:</label>
-                <input type="text" [(ngModel)]="nomeDisciplina" 
-                       name="nomeDisciplina" class="form-control"
-                       id="inputNomeDisciplina">
-            </div>
         </div>
 
         <br />
@@ -72,15 +66,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let disciplina of lista">
-                        <td>{{ disciplinaBusca.idDisciplinaBusca }}</td>
-                        <td>{{ disciplinaBusca.nomeDisciplinaBusca }}</td>
-                        <td>{{ disciplinaBusca.idDisciplinaProfessor }}</td>
-                        <td>{{ disciplinaBusca.cargaHorariaBusca }}</td>
-                        <td>{{ disciplinaBusca.limiteAlunosBusca }}</td>
+                    <tr *ngFor="let disciplina of disciplina">
+                        <td>{{ disciplina.idDisciplinaDTO }}</td>
+                        <td>{{ disciplina.nomeDisciplinaDTO }}</td>
+                        <td>{{ disciplina.idDisciplinaProfessorDTO }}</td>
+                        <td>{{ disciplina.cargaHorariaDTO }}</td>
+                        <td>{{ disciplina.limiteAlunosDTO }}</td>
                         <td>
                             <button class="btn btn-primary" 
-                                    routerLink="/disciplina/form/{{ disciplina.id }}">
+                                    routerLink="/disciplina/form/{{ disciplina.idDisciplinaDTO }}">
                                 <i class="fa fa-edit"></i>
                             </button>
 
@@ -104,7 +98,7 @@
                 </div>
 
                 <div class="modal-body" *ngIf="disciplinaelecionado">
-                    Confirma a deleção do(a) Disciplina {{ disciplinaelecionado.nomeDisciplina }}?
+                    Confirma a deleção do(a) Disciplina {{ disciplinaelecionado.nomeDisciplinaDTO }}?
                 </div>
 
                 <div class="modal-footer">

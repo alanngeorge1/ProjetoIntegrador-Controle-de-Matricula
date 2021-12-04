@@ -1,7 +1,7 @@
 export class Disciplina{    
-    idDisciplina: number;
-    idDisciplinaProfessor:number;
-    nomeDisciplina: string;
-    cargaHoraria: number;
-    limiteAlunos: number;
+    idDisciplinaDTO: number;
+    idDisciplinaProfessorDTO:number;
+    nomeDisciplinaDTO: string;
+    cargaHorariaDTO: number;
+    limiteAlunosDTO: number;
 }

@@ -22,6 +22,7 @@ export class DisciplinasListaComponet implements OnInit {
   nomeMatricula: string;
   lista: DisciplinaBusca[];
   message: string;
+  disciplina: Disciplina[] = [];
 
   constructor(
     private service: DisciplinasService, 
@@ -31,6 +32,10 @@ export class DisciplinasListaComponet implements OnInit {
     this.service
       .getDisciplinas()
       .subscribe( resposta => this.lista = resposta );
+
+      this.service
+      .getDisciplinasDTO()
+      .subscribe( resposta => this.disciplina = resposta );
   }
 
   novoCadastro(){
